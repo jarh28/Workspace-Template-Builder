@@ -5,8 +5,8 @@
 }
 
 .workspace-settings-component {
-  margin: 2vh;
-  width: 40%;
+  margin: 2%;
+  width: 50%;
 }
 
 .workspace-settings-component form {
@@ -14,17 +14,24 @@
   flex-direction: column;
 }
 
+.form-section-controls {
+  margin-top: 2vh;
+}
+
 .form-section-controls Button {
-  margin: 0vh 2vh;
+  margin: 0vh 2vw;
 }
 
 .workspace-preview-component {
-  width: 50%;
-  height: 60%;
+  width: 600px;
+  height: 430px;
   position: fixed;
   right: 0;
   top: 10vh;
   display: block;
+
+  transform: scale(0.9);
+  transform-origin: top right;
 }
 
 .workspace-preview-component header {
@@ -39,7 +46,7 @@
 }
 
 .browser-tab {
-  width: 30vh;
+  width: 250px;
   background-color: #fff;
   margin-left: 15px;
   margin-top: 7px;
@@ -86,7 +93,7 @@
 .browser-main-content header {
   background-color: #fff;
   width: 100%;
-  height: 8vh;
+  height: 60px;
 
   display: flex;
   justify-content: space-between;
@@ -98,7 +105,7 @@
 #browser-main-search {
   display: inline-block;
   height: 20px;
-  width: 30vh;
+  width: 200px;
   background-color: #E7E7E8;
   margin-left: 2vh;
   margin-right: 1vh;
@@ -107,7 +114,7 @@
 
 #browser-main-login {
   height: 30px;
-  width: 20vh;
+  width: 120px;
   margin-right: 2vh;
   border-radius: 50px;
 }
@@ -115,15 +122,15 @@
 .browser-main-content main {
   width: 100%;
   height: 88%;
-  padding-top: 7vh;
-  padding-left: 2vh;
+  padding-top: 20px;
+  padding-left: 12px;
 }
 
 #browser-main-title {
   display: block;
   height: 15px;
-  width: 20vh;
-  background-color: #E7E7E8;
+  width: 150px;
+  background-color: #c7d5db;
   border-radius: 10px;
 }
 
@@ -133,7 +140,7 @@
 }
 
 .browser-main-item {
-  height: 6vh;
+  height: 40px;
   width: 100%;
   background-color: #F5F6F8;
   margin-top: 1px;
@@ -150,14 +157,14 @@
   display: inline-block;
   height: 10px;
   border-radius: 10px;
-  margin-left: 2vh;
+  margin-left: 10px;
 }
 
 .browser-main-secondary-item {
   background-color: #c7d5db;
   margin-right: 25px;
   height: 100%;
-  width: 35vh;
+  width: 200px;
 
   display: flex;
   align-items: center;
@@ -165,13 +172,13 @@
 
 .browser-aside-menu {
   border-right: solid 1px #E4E4E4;
-  width: 8vh;
+  width: 5vw;
   height: 99%;
 
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding-top: 5px;
+  padding-top: 15px;
 }
 
 .browser-aside-menu span {
@@ -181,9 +188,14 @@
   margin-top: 20px;
 }
 
-@media (max-width: 800px) {
+/* 
+  TODO: Reduce duplicadted code on rules.
+*/
+
+@media (max-width: 900px) {
   .main-container {
-    justify-content: center;
+    justify-content: flex-start;
+    margin: 0 20px;
   }
 
   .workspace-settings-component {
@@ -195,12 +207,22 @@
   }
 }
 
-@media (max-height: 600px) {
-  .main-container {
-    justify-content: center;
+@media (max-width: 1000px) {
+  .workspace-settings-component {
+    transform: scale(0.75);
+    transform-origin: top left;
+    width: 570px;
   }
 
   .workspace-preview-component {
-    display: none;
+    transform: scale(0.55);
+    transform-origin: top right;
+  }
+}
+
+@media (max-width: 1200px) {
+  .workspace-preview-component {
+    transform: scale(0.75);
+    transform-origin: top right;
   }
 }

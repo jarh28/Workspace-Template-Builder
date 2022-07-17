@@ -34,9 +34,14 @@ export default function IconLoader(props) {
             sx={{
                 color: 'gray', 
                 marginLeft: '2vh', 
-                border: '1px solid #E4E4E4'
+                border: '1px solid #E4E4E4',
+                textTransform: 'initial',
             }}>
-                <Unarchive htmlColor='gray' /> 
+                <Unarchive 
+                htmlColor='gray' 
+                sx={{
+                    marginRight: "1vh"
+                }}/>
                 Subir logo 
                 <input 
                 type="file" 

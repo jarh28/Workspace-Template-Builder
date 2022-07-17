@@ -1,4 +1,4 @@
-import { Button } from "@mui/material";
+import { Button, useMediaQuery } from "@mui/material";
 import { useEffect, useState } from 'react';
 
 
@@ -9,7 +9,7 @@ function SizeButton({ value, checked, setSize, setCheckedIdx, idx }) {
         color: componentColor
     } : {
         border: '1px solid #E4E4E4',
-        color: '#000'
+        color: '#000',
     };
 
     const handleClick = () => {
@@ -19,7 +19,10 @@ function SizeButton({ value, checked, setSize, setCheckedIdx, idx }) {
 
     return (
         <Button 
-        sx={styles} 
+        sx={{
+            ...styles, 
+            textTransform: 'initial'
+        }} 
         onClick={handleClick}>
             {value}
         </Button>
@@ -33,13 +36,26 @@ export default function SizeSelector(props) {
     useEffect(() => {
         props.size === 'Sólo yo' && setCheckedIdx(0)
     }, [props.size]);
+    
+    const mediaQuery = useMediaQuery("(max-width: 500px)");
+
+    let styles = {
+        display: "flex",
+        justifyContent: "space-evenly"
+    };
+
+    if (mediaQuery) {
+        styles = {
+            ...styles, 
+            transform: "scale(0.9)",
+            transformOrigin: "center left",
+            width: "130%",
+        }
+    }
 
     return (
         <div 
-        style={{
-            display: "flex",
-            justifyContent: "space-evenly"
-        }}>
+        style={styles}>
             {values.map((value, idx) => (
                 <SizeButton
                 key={idx}

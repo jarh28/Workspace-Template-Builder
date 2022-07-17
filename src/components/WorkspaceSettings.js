@@ -13,7 +13,7 @@ export default function WorkspaceSettings(props) {
     const onSubmit = data => {
         data.logo = props.logo;
         data.size = props.size;
-        console.log(JSON.stringify(data, null, 2));
+        alert(JSON.stringify(data, null, 2));
     };
 
     const handleDiscard = () => {
@@ -102,16 +102,16 @@ export default function WorkspaceSettings(props) {
                     variant="contained" 
                     type='submit' 
                     sx={{
-                        backgroundColor: "#48B5FE",
+                        textTransform: 'initial',
                         "&:hover": {
-
+                            backgroundColor: "#48B5FE",
                         }
                     }}>Guardar cambios</Button>
                     <Button 
                     variant="outlined" 
                     onClick={handleDiscard}
                     sx={{
-                
+                        textTransform: 'initial'
                     }}>Descartar</Button>
                 </section>
             </form>

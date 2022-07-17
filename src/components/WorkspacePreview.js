@@ -1,5 +1,5 @@
 import { Avatar, Chip } from "@mui/material";
-import { ArrowBack, ArrowForward, Refresh, Https, Close, Add, StarRounded } from '@mui/icons-material';
+import { ArrowBack, ArrowForward, Refresh, Https, Close, Add, StarRounded, TagFaces, Public, Lock } from '@mui/icons-material';
 
 
 // TODO: Refactor this component into smaller ones. Then separates files at 'components' folder in two subfolders called: Settings and Preview.
@@ -13,14 +13,16 @@ export default function WorkspacePreview({ logo, name, url, size, color, privacy
         {'primary': [0.35, 0.35, 0.10], 'secondary': [0.4, 0.1, 0.2]},
     ];
 
+    const onlyOne = size === 'Sólo yo';
+    const highlightedItem = onlyOne ? [1] : [2, 5];
     const getListItem = (data, id) => {
         let {primary, secondary} = data;
-        primary = primary.map(x => Math.floor(45 * x).toString() + 'vh');
-        secondary = secondary.map(x => Math.floor(40 * x).toString() + 'vh');
+        primary = primary.map(x => Math.floor(270 * x).toString() + 'px');
+        secondary = secondary.map(x => Math.floor(170 * x).toString() + 'px');
         
-        const colorItemMini = id === 2 ? color : '#E2E3E5';
-        const itemStyles = id === 2 ? {borderLeft: `2px solid ${color}`} : {};
-        const itemBackColor = id === 2 ? (
+        const colorItemMini = highlightedItem.includes(id) ? color : '#E2E3E5';
+        const itemStyles = highlightedItem.includes(id) ? {borderLeft: `2px solid ${color}`} : {};
+        const itemBackColor = highlightedItem.includes(id) ? (
             <span style={{
                 position: 'fixed',
                 backgroundColor: color,
@@ -65,7 +67,7 @@ export default function WorkspacePreview({ logo, name, url, size, color, privacy
                                     Secure | https://
                                 </span>
                                 <span>
-                                    {url || ''}{/*(name && url) ? "/proyectos/" + name.toLowerCase().replace(/\s/g, '_') : ''*/}
+                                    {url || 'mi.dominio.dofleini.com'}
                                 </span>
                             </span>
                         </div>
@@ -85,16 +87,28 @@ export default function WorkspacePreview({ logo, name, url, size, color, privacy
                         <span id="browser-main-login" style={{backgroundColor: color}}></span>
                     </header>
                     <main>
-                        <span id="browser-main-title"></span>
+                        <div style={{
+                            display: "flex", 
+                            justifyContent: "space-between",
+                            alignItems: 'center',
+                            paddingRight: "5vh",
+                            paddingLeft: "2vh"
+                        }}>
+                            <span id="browser-main-title"></span>
+                            <div>
+                                <Chip icon={<TagFaces />} label={size} size='small' sx={{marginRight: "2vh"}} />
+                                <Chip icon={privacy === 'private' ? <Lock /> : <Public />} label={privacy === 'private' ? "Privado" : "Público"} size='small' />
+                            </div>
+                        </div>
                         <ul className="browser-main-list">
-                            {data.map((getListItem))}
+                            {onlyOne ? data.slice(0, 3).map((getListItem)): data.map((getListItem))}
                         </ul>
                     </main>
                 </section>
                 <aside className="browser-aside-menu">
                     <Avatar src={logo ?? ''} sx={{backgroundColor: 'darkslategray'}}>B</Avatar>
-                    {Array(5).fill(<span></span>).map((_, i) => {
-                        return i === 1 ? <span style={{backgroundColor: color}}></span>: <span style={{backgroundColor: '#CFD0D2'}}></span>;
+                    {Array((onlyOne ? 2 : 4)).fill(<span></span>).map((_, i) => {
+                        return i === (onlyOne ? 0 : 1) ? <span style={{backgroundColor: color}}></span>: <span style={{backgroundColor: '#CFD0D2'}}></span>;
                     })}
                 </aside>
             </main>

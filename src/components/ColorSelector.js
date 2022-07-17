@@ -1,7 +1,7 @@
-import { Scale, Widgets } from "@mui/icons-material";
-import { RadioGroup, FormControlLabel, Radio, Menu, MenuItem } from "@mui/material";
+import { RadioGroup, FormControlLabel, Radio, Menu, MenuItem, useMediaQuery } from "@mui/material";
 import { useState } from "react";
 import { ChromePicker } from "react-color";
+
 
 const optionStyles = (color) => ({
     color: color, 
@@ -13,7 +13,7 @@ const optionStyles = (color) => ({
     "&.Mui-checked": {
         color: color,
         backgroundColor: "transparent",
-        transform: "scale(2)"
+        transform: "scale(2.0)",
     }
 })
 
@@ -77,16 +77,29 @@ export default function ColorSelector(props) {
         props.setColor(event.target.value);
     }
 
+    const mediaQuery = useMediaQuery("(max-width: 500px)");
+
+    let styles = {
+        display: 'flex',
+        flexDirection: 'row',
+        justifyContent: 'space-evenly',
+    };
+
+    if (mediaQuery) {
+        styles = {
+            ...styles, 
+            transform: "scale(0.8)",
+            transformOrigin: "center left",
+            width: "130%",
+        }
+    }
+
     return (
-        <RadioGroup 
+        <RadioGroup
         defaultValue={colors[0]}
         value={props.color}
         onChange={handleChange}
-        sx={{
-            display: 'flex',
-            flexDirection: 'row',
-            justifyContent: 'space-evenly'
-        }}>
+        sx={styles}>
             {colors.map((color, idx) => (
                 <ColorOption 
                 key={idx} 
