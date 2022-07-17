@@ -1,6 +1,6 @@
 import './App.css';
-import WorkspaceSettings from './WorkspaceSettings';
-import WorkspacePreview from './WorkspacePreview';
+import WorkspaceSettings from './components/WorkspaceSettings';
+import WorkspacePreview from './components/WorkspacePreview';
 import { useState } from 'react';
 
 function App() {

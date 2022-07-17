@@ -1,7 +1,9 @@
 import { Avatar, Chip } from "@mui/material";
 import { ArrowBack, ArrowForward, Refresh, Https, Close, Add, StarRounded } from '@mui/icons-material';
 
-function WorkspacePreview({ logo, name, url, size, color, privacy }) {
+
+// TODO: Refactor this component into smaller ones. Then separates files at 'components' folder in two subfolders called: Settings and Preview.
+export default function WorkspacePreview({ logo, name, url, size, color, privacy }) {
     const data = [
         {'primary': [0.35, 0.35, 0.10], 'secondary': [0.5]},
         {'primary': [0.10, 0.40, 0.05, 0.30], 'secondary': [0.2, 0.5]},
@@ -63,7 +65,7 @@ function WorkspacePreview({ logo, name, url, size, color, privacy }) {
                                     Secure | https://
                                 </span>
                                 <span>
-                                    {url || ''}{(name && url) ? "/proyectos/" + name.toLowerCase().replace(/\s/g, '_') : ''}
+                                    {url || ''}{/*(name && url) ? "/proyectos/" + name.toLowerCase().replace(/\s/g, '_') : ''*/}
                                 </span>
                             </span>
                         </div>
@@ -99,5 +101,3 @@ function WorkspacePreview({ logo, name, url, size, color, privacy }) {
         </div>
     );
 }
-
-export default WorkspacePreview;

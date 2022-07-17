@@ -1,6 +1,7 @@
 import { Button } from "@mui/material";
 import { useEffect, useState } from 'react';
 
+
 function SizeButton({ value, checked, setSize, setCheckedIdx, idx }) {
     const componentColor = '#48B5FE'
     const styles = checked ? {
@@ -16,7 +17,13 @@ function SizeButton({ value, checked, setSize, setCheckedIdx, idx }) {
         setCheckedIdx(idx);
     }
 
-    return <Button sx={styles} onClick={handleClick}>{value}</Button>
+    return (
+        <Button 
+        sx={styles} 
+        onClick={handleClick}>
+            {value}
+        </Button>
+    );
 }
 
 export default function SizeSelector(props) {    
@@ -28,20 +35,20 @@ export default function SizeSelector(props) {
     }, [props.size]);
 
     return (
-        <div style={{
+        <div 
+        style={{
             display: "flex",
             justifyContent: "space-evenly"
         }}>
-            {values.map((value, idx) => <SizeButton
-                    key={idx}
-                    value={value} 
-                    checked={idx === checkedIdx} 
-                    setSize={props.setSize}
-                    setCheckedIdx={setCheckedIdx}
-                    idx={idx}
-                />
-            )}
+            {values.map((value, idx) => (
+                <SizeButton
+                key={idx}
+                value={value} 
+                checked={idx === checkedIdx} 
+                setSize={props.setSize}
+                setCheckedIdx={setCheckedIdx}
+                idx={idx} />
+            ))}
         </div>
     );
 }
-
