@@ -56,12 +56,12 @@ export default function WorkspaceSettings(props) {
                 <h2>URL del espacio (dirección web)</h2>
                 <InputField
                 id="url"
-                label="Ep: mi.dominio.dofleini.com" 
+                label="Ep: mi.dominio.dofleini.com"
                 value={props.url} 
                 setValue={props.setURL} 
                 register={register}
                 required="Tu espacio de trabajo debe tener una dirección web."
-                pattern={{value: /(www\.)?[-a-zA-Z0-9@:%._\+~#=]{2,256}\.[a-z]{2,6}\b([-a-zA-Z0-9@:%_\+.~#?&//=]*)/g, message: "Parece que tu URL no es válida :("}} 
+                pattern={{value: /(www\.)?[-a-zA-Z0-9@:%._+~#=]{2,256}\.[a-z]{2,6}\b([-a-zA-Z0-9@:%_+.~#?&//=]*)/g, message: "Parece que tu URL no es válida :("}} 
                 errors={errors} />
 
                 <InfoMessage 

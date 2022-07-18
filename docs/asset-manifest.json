@@ -1,8 +1,8 @@
 {
   "files": {
-    "main.css": "/Workspace-Template-Builder/static/css/main.6be01e93.chunk.css",
-    "main.js": "/Workspace-Template-Builder/static/js/main.a9544b31.chunk.js",
-    "main.js.map": "/Workspace-Template-Builder/static/js/main.a9544b31.chunk.js.map",
+    "main.css": "/Workspace-Template-Builder/static/css/main.a28b3586.chunk.css",
+    "main.js": "/Workspace-Template-Builder/static/js/main.9f191099.chunk.js",
+    "main.js.map": "/Workspace-Template-Builder/static/js/main.9f191099.chunk.js.map",
     "runtime-main.js": "/Workspace-Template-Builder/static/js/runtime-main.cc597a2a.js",
     "runtime-main.js.map": "/Workspace-Template-Builder/static/js/runtime-main.cc597a2a.js.map",
     "static/js/2.8d47559f.chunk.js": "/Workspace-Template-Builder/static/js/2.8d47559f.chunk.js",
@@ -10,13 +10,13 @@
     "static/js/3.d0876eca.chunk.js": "/Workspace-Template-Builder/static/js/3.d0876eca.chunk.js",
     "static/js/3.d0876eca.chunk.js.map": "/Workspace-Template-Builder/static/js/3.d0876eca.chunk.js.map",
     "index.html": "/Workspace-Template-Builder/index.html",
-    "static/css/main.6be01e93.chunk.css.map": "/Workspace-Template-Builder/static/css/main.6be01e93.chunk.css.map",
+    "static/css/main.a28b3586.chunk.css.map": "/Workspace-Template-Builder/static/css/main.a28b3586.chunk.css.map",
     "static/js/2.8d47559f.chunk.js.LICENSE.txt": "/Workspace-Template-Builder/static/js/2.8d47559f.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
     "static/js/runtime-main.cc597a2a.js",
     "static/js/2.8d47559f.chunk.js",
-    "static/css/main.6be01e93.chunk.css",
-    "static/js/main.a9544b31.chunk.js"
+    "static/css/main.a28b3586.chunk.css",
+    "static/js/main.9f191099.chunk.js"
   ]
 }

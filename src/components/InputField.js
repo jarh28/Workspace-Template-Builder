@@ -9,9 +9,9 @@ export default function InputField({ id, label, value, setValue, register, requi
     const handleAlert = (error) => {
         if (error) {
             return <Alert severity="error">{error.message}</Alert>;
-        } else {
+        } /*else {
             return value && <Alert>Todo correcto !</Alert>;
-        }
+        }*/
     }
 
     return (
